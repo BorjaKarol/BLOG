@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container services">
     <h1>{{$title}}</h1>
     @if(count($services) > 0)
     <ul class="list-group">

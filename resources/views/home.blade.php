@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container home">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -18,12 +18,14 @@
                     @if (count($posts) > 0)
                     <table class="table table-striped">
                         <tr>
+                            <th></th>
                             <th>Title</th>
                             <th></th>
                             <th></th>
                         </tr>
                         @foreach ($posts as $post)
                         <tr>
+                            <td><img src="/storage/cover_images/{{$post->cover_image}}" style="width:50px"></td>
                             <td>{{$post->title}}</td>
                             <!-- edit button -->
                             <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
@@ -32,13 +34,13 @@
                                 @method('DELETE')
                                 <!-- delete button -->
                                 <button type="submit" class="btn btn-default float-right">Delete</button>
-                            </form>
-                        </td>
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                     </table>
                     @else
-                        <p>You have no post</p>
+                        <a>You have no post</a>
                     @endif
                 </div>
             </div>

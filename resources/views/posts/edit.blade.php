@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 <h1>Edit Post</h1>
-    <form action="{{ route('posts.update',$post->id) }}" method="POST">
+    <form action="{{ route('posts.update',$post->id) }}" method="POST" enctype="multipart/form-data">
             <div class="form-group">
             @method('PUT')
             @csrf
@@ -13,6 +13,10 @@
             <div class="form-group">
                 <label for="body">Body</label>
                 <textarea id="article-ckeditor" class="form-control" name="body" cols="30" rows="10" placeholder="Detail">{{ $post->body }}</textarea>
+            </div>
+            <div class="form-group">
+                <p>Upload an Image for your blog cover.</p>
+                <input type="file" name="cover_image" id="cover_image">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
     </form>
